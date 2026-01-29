@@ -1,0 +1,241 @@
+.mainCLMP {
+  position: relative;
+  align-items: center;
+  display: flex;
+  border: 1px solid;
+  border-color: #e5e7eb;
+  border-radius: 10px;
+  height: 80px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+.CLicksTextANum {
+  cursor: pointer;
+}
+.timerCLMP {
+  border-top-left-radius: 9px;
+  border-bottom-right-radius: 8px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #609dff;
+}
+.timerCLMPRed {
+  border-top-left-radius: 9px;
+  border-bottom-right-radius: 8px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #000;
+}
+.tegCLMP {
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 6px;
+  height: 26px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.tegCLMP svg {
+  height: 22px;
+  margin: 2px 5px;
+}
+
+.tegCLMP div {
+  padding: 0 5px 0 0;
+  white-space: nowrap;
+}
+.SVGLinksLP {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.gradient-circle {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.SVGCOntLP {
+  align-items: center;
+  border-radius: 100px;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  margin-left: 10px;
+  outline: 1px solid #e5e7eb;
+  overflow: hidden;
+  padding: 8px;
+  transition: padding 0.3s;
+  width: 36px;
+  box-sizing: border-box;
+}
+.LinksDateCopy {
+  width: calc(100% - 250px - 70px);
+  margin-left: 20px;
+  height: 50px;
+}
+.LinksDateTop {
+  margin-bottom: 8px;
+  height: 20px;
+}
+.LinksDateBottom {
+  position: relative;
+  display: flex;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  color: black;
+  font-weight: 550;
+  height: 20px;
+  font-size: 14px;
+}
+.ShortLinkLPMP {
+  cursor: pointer;
+  font-weight: 550;
+  font-size: 16px;
+  text-align: left;
+  display: inline-block;
+  cursor: pointer;
+  width: max-content;
+  color: #1e40af;
+  text-align: left;
+}
+.blockForCopySVG {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+}
+.rightmainCLMP {
+  justify-content: flex-end;
+  padding-right: 2px;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.TwoIconsContainer {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+}
+.threeIconsDevices {
+}
+.BlurAbsolute {
+  position: absolute;
+  top: -20%;
+  right: -25%;
+  width: 250px;
+  height: 25px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgb(255, 255, 255, 99%),
+    rgb(255, 255, 255)
+  );
+}
+
+.comment-popup {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  display: none;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 30px;
+  width: 200px;
+  z-index: 1003;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.blockForCopySVG:hover .comment-popup {
+  display: block;
+}
+
+.triDot {
+  height: max-content;
+  margin-left: 10px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.stats-button {
+  align-items: center;
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  gap: 5px;
+  height: 26px;
+  justify-content: space-between;
+  margin-left: 20px;
+  max-width: 91px;
+  padding: 5px 13px;
+}
+
+.ShortLinkBtn {
+  display: inline-flex;
+  margin-left: 5px;
+  position: absolute;
+  top: 10px;
+}
+
+@media (max-width: 500px) {
+  .BlurAbsolute {
+    display: none;
+  }
+
+  .LinksDateBottom {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .SVGCOntLP {
+    display: none;
+  }
+
+  .rightmainCLMP {
+    margin-left: auto;
+  }
+
+  .BlurAbsolute {
+    width: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  .BlurAbsolute {
+    width: 150px;
+  }
+
+  .tagValue {
+    display: none;
+  }
+
+  .tegCLMP svg {
+    border-right: none;
+  }
+}

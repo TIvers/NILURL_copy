@@ -1,0 +1,243 @@
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import "../styles/GraphPage/GraphPage.css";
+import GPPeriod from "../components/GraphPage/GPPeriod";
+import Chart from "../components/GraphPage/Chart";
+import AddresGp from "../components/GraphPage/AddresGp";
+import DevicesGp from "../components/GraphPage/DevicesGp";
+import TopRefs from "../components/GraphPage/TopRefs";
+import { useNavigate } from "react-router-dom";
+import HeaderLinksPage from "../components/Global/HeaderLinksPage";
+import HeaderLinksPageFree from "../components/Global/HeaderLinksPageFree";
+import HeaderLinksPageBase from "../components/Global/HeaderLinksPageBase";
+// import transition from "../LogicComp/Transition";
+import useAuth from "../pages/useAuth";
+import { SortData } from "../LogicComp/GPFakeData";
+import Cookies from "js-cookie";
+import { Helmet } from 'react-helmet';
+import { usePremium } from "../LogicComp/DataProvider"; 
+
+const GraphPage = () => {
+  const location = useLocation();
+  const {pathS} = location.state || {};
+  const [loading, setLoading] = useState(true);
+  const [userStatus, setUserStatus] = useState(null);
+  const [DataFromServ, setDataFromServ] = useState([]);
+  const [period, setPeriod] = useState(1);
+  const [clicks, setClicks] = useState([1, 2, 3, 4]);
+  const [niz, setNiz] = useState(["qwe", "qwe", "asd", "asd"]);
+  const navigate = useNavigate();
+  const accessToken = Cookies.get("access_token");
+  const [dateFake, setDateFake] = useState([]);
+  const {isLoggedIn, isLoading, isRedirected, setIsRedirected} = useAuth();
+  const { isPremium } = usePremium();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        
+        let url = 'https://nilurl.ru:8000/data_clicks_user_all.php';
+        if (pathS) {
+          url += `?pathS=${encodeURIComponent(pathS)}`;
+        }
+
+        const response = await fetch(url, {
+          method: 'GET',
+          credentials: 'include'
+        });
+
+        const result = await response.json();
+
+        if (result.success === false) {
+          window.location.reload();
+        } else {
+          setDataFromServ(result);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+
+      }
+    };
+
+    fetchData();
+  }, [pathS]);
+
+  useEffect(() => {
+    setUserStatus(isPremium);
+    if (!isLoading && !isLoggedIn && !isRedirected) {
+      setIsRedirected(true);
+      navigate('/login');
+    }
+  }, [isLoading, isLoggedIn, navigate, isRedirected, setIsRedirected, accessToken, isPremium]);
+
+  const ChangePeriod = (prop) => {
+    setPeriod(prop);
+  };
+  let summ = 0;
+  clicks.forEach((value) => {
+    summ += value;
+  });
+  useEffect(() => {
+    let today = new Date(Date.now() - 1000 * 3600 * 4);
+    let arrayC = [];
+    let labels = [];
+    let filteredData = [];
+
+    const processData = (timeLimits, labelNames) => {
+        arrayC = new Array(timeLimits.length).fill(0);
+        labels = labelNames;
+        filteredData.forEach((valueq) => {
+            const value = new Date(valueq.time);
+            const condition = today.getTime() - value.getTime();
+            for (let i = 0; i < timeLimits.length; i++) {
+                if (condition <= timeLimits[i]) {
+                    arrayC[i]++;
+                    break;
+                }
+            }
+        });
+    };
+
+    switch (period) {
+        case 0:
+            filteredData = SortData(DataFromServ, 0);
+            processData(
+                [1000 * 60 * 20, 1000 * 60 * 40, 1000 * 60 * 60],
+                ["0-20 минут назад", "20-40 минут назад", "40-60 минут назад"]
+            );
+            break;
+        case 1:
+            filteredData = SortData(DataFromServ, 1);
+            processData(
+                [4 * 3600 * 1000, 8 * 3600 * 1000, 12 * 3600 * 1000, 16 * 3600 * 1000, 20 * 3600 * 1000, 24 * 3600 * 1000],
+                ["0-4 часов назад", "4-8 часов назад", "8-12 часов назад", "12-16 часов назад", "16-20 часов назад", "20-24 часов назад"]
+            );
+            break;
+        case 2:
+            filteredData = SortData(DataFromServ, 2);
+            processData(
+                Array.from({length: 7}, (_, i) => (i + 1) * 24 * 3600 * 1000),
+                ["сегодня", "1 день назад", "2 дня назад", "3 дня назад", "4 дня назад", "5 дней назад", "6 дней назад"]
+            );
+            break;
+        case 3:
+            filteredData = SortData(DataFromServ, 3);
+            processData(
+                Array.from({length: 30}, (_, i) => (i + 1) * 24 * 3600 * 1000),
+                Array.from({length: 30}, (_, i) => `${i + 1} день назад`)
+            );
+            break;
+        case 4:
+            filteredData = SortData(DataFromServ, 3);
+            arrayC = [0, 0, 0, 0, 0, 0];
+            labels = [
+                "Текущий месяц 1/2",
+                "Текущий месяц 2/2",
+                "Месяц назад 1/2",
+                "Месяц назад 2/2",
+                "2 месяца назад 1/2",
+                "2 месяца назад 2/2"
+            ];
+            filteredData.forEach((valueq) => {
+                const value = new Date(valueq.time);
+                const diffMonths = today.getMonth() - value.getMonth() + (12 * (today.getFullYear() - value.getFullYear()));
+                const monthHalf = value.getDate() > 15 ? 1 : 0;
+                const index = diffMonths * 2 + monthHalf;
+                if (index >= 0 && index < 6) arrayC[index]++;
+            });
+            break;
+        case 5:
+            filteredData = SortData(DataFromServ, 3);
+            arrayC = new Array(12).fill(0);
+            labels = [
+                "этот месяц", "месяц назад", "2 месяца назад", "3 месяца назад", "4 месяца назад", "5 месяцев назад", 
+                "6 месяцев назад", "7 месяцев назад", "8 месяцев назад", "9 месяцев назад", "10 месяцев назад", "11 месяцев назад"
+            ];
+            filteredData.forEach((valueq) => {
+                const value = new Date(valueq.time);
+                const diffMonths = today.getMonth() - value.getMonth() + (12 * (today.getFullYear() - value.getFullYear()));
+                if (diffMonths >= 0 && diffMonths < 12) arrayC[diffMonths]++;
+            });
+            break;
+        default:
+            filteredData = [];
+    }
+
+    setClicks(arrayC);
+    setNiz(labels);
+    setDateFake(filteredData);
+}, [period, DataFromServ]);
+
+  const renderHeader = () => {
+    switch (userStatus) {
+        case 'free':
+            return <HeaderLinksPageFree />;
+        case 'premium':
+            return <HeaderLinksPage />;
+        case 'base':
+            return <HeaderLinksPageBase />;
+        default:
+            return <HeaderLinksPageFree />;
+    }
+};
+
+  if (isLoading && loading) {
+    return <div></div>;
+  } else {
+    return (
+        <div>
+          <Helmet>
+            <title>Аналитика</title>
+          </Helmet>
+          {renderHeader()}
+          <div>
+            <div className="gp-background">
+              <div className="GPMainContainer">
+                <div className="GPCenterContainer">
+                  <div className="LinkAndPeriod">
+                    <div className="GPLink">
+                      <div className="NILURLTRYOPT">Аналитика</div>
+                    </div>
+                    <div className="GPPeriod">
+                      <GPPeriod ChangePeriodFunc={ChangePeriod}/>
+                    </div>
+                  </div>
+                  <div className="Charts">
+                    <div className="countOfViewsPeriod">{summ}</div>
+                    <div className="GlobalCountOfViewText">
+                      Общее количество кликов{" "}
+                      {pathS ? `по ссылке "${pathS}"` : ""}
+                    </div>
+                    <Chart labels={niz} Clicks={clicks}/>
+                  </div>
+                  {DataFromServ.length > 0 && (
+                      <div className="OptionsInGP">
+                        <div className="Options-container">
+                          <div className="AddressesInGP">
+                            <AddresGp Dates={dateFake}/>
+                          </div>
+                          <div className="DevicesInGP">
+                            <DevicesGp Dates={dateFake}/>
+                          </div>
+                        </div>
+                        { !pathS && (
+                          <div className="Options-container" style={{marginTop: "50px"}}>
+                            {/*    <div className="REFSGP">
+                            <RefsGp /></div> */}
+                            <div className="TOPREFGP">
+                              <TopRefs/>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    );
+  }
+}
+export default GraphPage;

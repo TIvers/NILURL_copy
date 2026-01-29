@@ -1,0 +1,169 @@
+.InputForLinksMP{
+    background-color: white;
+    display: flex;
+    max-width: 709px;
+    width: 100%;
+    border: 1px solid #E5E7EB;
+    height: 38px;
+    border-radius: 6px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-family: "Helvetica Neue Cyr";
+}
+.InputLinksMP{
+    outline:0;
+    height: 85%;
+    width: 80%;
+    border: none;
+    font-family: "Helvetica Neue Cyr";
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #6B7280;
+}
+.svgLinksMP{
+    padding: 0;
+    margin: 0 0 0 10px;
+    align-items: start;
+
+}
+.VvodMPLinks{
+    display: flex;
+    width: 40px;
+    height: 100%;
+    border-radius: 4px;
+    align-items: center;
+    background-color: white;
+    border: none;
+}
+.LinksMapOneContainer{
+    background-color: white;
+    margin-top: .5rem;
+    width: 509px;
+    height: max-content;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    border: solid 1px #E5E7EB;
+    border-radius: 6px;
+    justify-content: space-between;
+
+}
+.LogoAndTextLinksMap{
+    margin-left: 10px;
+    display: flex;
+}
+.SmallAndLargeLink{
+    display: inline-block;
+    text-align: left;
+    margin-left: 10px;
+    line-height: 25px;
+}
+.VvodMPLinks{
+    cursor: pointer;
+}
+.ButtonsContainerLinksMap{
+    margin-left: auto;
+    display: flex;
+    vertical-align: top;
+}
+.ButtonCircleCopyAndShare{
+    width: 28px;
+    height: 28px;
+    background-color: #F3F4F6;
+    border: none;
+    border-radius: 9999px;
+    margin-left: 10px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.countOfViewLinksMap{
+    border: none;
+    background-color: #F3F4F6;
+    border-radius: 6px;
+    max-width: 92px;
+    height: 28px;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 13px;
+}
+.CLicksTextANumMain{
+    text-align: center;
+    color: #374151;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Helvetica Neue Cyr";
+}
+.TriDotMenu{
+    margin-left: 12px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+}
+.InfoMapLinks{
+    padding: .75rem;
+    margin-top: .5rem;
+    color: #6B7280;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    background-color: white;
+    text-align: center;
+    box-sizing: border-box;
+}
+.containerNoContentMP{
+    background-color: white;
+    margin-top: 20px;
+    width: 509px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    border: solid 1px #E5E7EB;
+    border-radius: 6px;
+}
+
+@media (max-width: 650px) {
+    .LinksMapOneContainer,
+    .ButtonsContainerLinksMap,
+    .CLicksTextANum,
+    .InfoMapLinks,
+    .containerNoContentMP {
+        width: 100%;
+        height: auto;
+    }
+
+    .LinksMPContainer {
+        text-align:left;
+    }
+
+    .ButtonsContainerLinksMap {
+        margin-left: 10px;
+    }
+
+    .ButtonCircleCopyAndShare,
+    .countOfViewLinksMap {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+
+    .LinksMapOneContainer {
+        display: block;
+        position: relative;
+    }
+
+    .TriDotMenu {
+        position: absolute;
+        right: 10px; /* 10 пикселей от правого края родителя */
+        top: 50%; /* Позиционируем верхнюю границу элемента по центру высоты родителя */
+        transform: translateY(-50%); /* Сдвигаем элемент на 50% его высоты вверх, чтобы выровнять по центру */
+    }
+}

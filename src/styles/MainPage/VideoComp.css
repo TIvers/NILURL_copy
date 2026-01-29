@@ -1,0 +1,202 @@
+.MainVideoCompContainer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.StrongFunctionText {
+  width: 875px;
+  text-align: center;
+  font-weight: 900;
+  line-height: 1.15;
+  font-size: 3.75rem;
+}
+.GradintVordMP {
+  display: inline-block;
+  background-image: linear-gradient(#6a11cb, #2575fc);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes Anime {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+.divForAnimation {
+  animation-name: Anime;
+  animation-duration: 2s;
+}
+.podAcordion {
+  margin-top: 20px;
+  width: 80%;
+  font-weight: 400;
+  font-size: 14px;
+  color: #6b7280;
+  /*animation-name: Anime;*/
+  /*animation-duration: 2s;*/
+  transition: max-height 1s;
+}
+.MoreButtonMP:hover {
+  background-color: transparent;
+  transition: all 0.3s ease;
+  color: black;
+  cursor: pointer;
+}
+@media (max-width: 1500px) {
+  .svgVideoCompAccord {
+    margin-left: 20px;
+  }
+  .PodVieoA {
+    margin-left: 3%;
+  }
+  .podAcordion {
+    margin-left: 3%;
+  }
+  .MoreButtonMP {
+    background-color: black;
+    color: white;
+    margin-top: 15px;
+    margin-left: 3%;
+    width: 112px;
+    height: 34px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 3000px) {
+  .videoPlusAccordions {
+    display: flex;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 10px -50px 94px 1px #c7c7c733 inset;
+  }
+  .PodVieoA {
+    margin-left: 3%;
+  }
+  .svgVideoCompAccord {
+    margin-left: 20px;
+  }
+  .podAcordion {
+    width: 60%;
+    margin-left: 10%;
+  }
+  .MoreButtonMP {
+    background-color: black;
+    color: white;
+    margin-top: 15px;
+    margin-left: 10%;
+    width: 112px;
+    height: 34px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+}
+
+.AccordionsMP {
+  overflow: hidden;
+  height: 80%;
+  width: 60%;
+  display: inline-block;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.Video {
+  border-radius: 50px;
+  margin-top: 70px;
+  width: 60%;
+  height: 80%;
+}
+.AccordionMP {
+  border-bottom: 1px solid #e5e7eb;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.AccordionMPLast {
+  margin-top: 50px;
+  padding-bottom: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.PodVieoA {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.podAcordionHide {
+  display: none;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+}
+
+.video-main {
+  width: 100%; /* или конкретная ширина, если нужна */
+  max-width: 560px; /* макс. ширина плеера */
+  height: 315px; /* высота плеера */
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(243.11deg, #90c8e9 11.56%, #c4dff2 100%);
+  border-radius: 51px;
+}
+
+.video-main iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit; /* чтобы iframe не выходил за границы */
+}
+
+@media (max-width: 1200px) {
+  .videoPlusAccordions {
+    flex-direction: column; /* Изменить направление на колонну */
+    height: auto; /* Установить высоту автоматически для контейнера */
+  }
+
+  .AccordionsMP {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .video-main {
+    width: auto;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .StrongFunctionText {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .StrongFunctionText {
+    font-size: 1.75rem;
+  }
+}

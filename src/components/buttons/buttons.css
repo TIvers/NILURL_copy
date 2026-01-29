@@ -1,0 +1,65 @@
+.loader {
+  border-radius: 14px;
+  background-color: rgba(0, 0, 0, 1);
+  position: relative;
+  font-family: "Helvetica Neue Cyr";
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #fff;
+  border: none;
+  overflow: hidden;
+  transition: padding-right 0.5s;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-align: end;
+}
+
+#free:hover:after {
+  background-color: rgba(5, 0, 249, 1);
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  transition: all 0.5s;
+}
+
+.loader:hover:after {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(5, 0, 249, 1);
+  border-radius: 14px;
+}
+
+.loader:not(:hover):after {
+  width: 10px;
+  height: 10px;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.loader span {
+  position: relative;
+  z-index: 2;
+}
+
+.loader svg {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #fff;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.loader:hover svg {
+  opacity: 1;
+}

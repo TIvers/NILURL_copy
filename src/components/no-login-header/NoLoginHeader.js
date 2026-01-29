@@ -1,0 +1,25 @@
+import "./noLoginHeader.css";
+import LogoImage from "../../img/logo-icon.svg";
+import {useNavigate} from "react-router-dom";
+import {MAINPAGE_ROUTE, PRICEPAGE_ROUTE} from "../../LogicComp/utils/Const";
+
+const NoLoginHeader = () => {
+    const navigate = useNavigate()
+
+
+
+
+  return (
+    <header className="no-login-header wrapper">
+      <p className="prices-button" onClick={()=>navigate(PRICEPAGE_ROUTE)}>Цены</p>
+      <span className="logo">
+        <img src={LogoImage} alt="Логотип" style={{cursor:"Pointer"}} onClick={()=>navigate(MAINPAGE_ROUTE)}/>
+      </span>
+      <div className="no-login-header-right">
+        <button className="registration-button" onClick={()=>{navigate("/login")}}>Войти</button>
+      </div>
+    </header>
+  );
+};
+
+export default NoLoginHeader;

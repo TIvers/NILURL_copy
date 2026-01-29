@@ -1,0 +1,186 @@
+.HeaderLinksPageC {
+  height: 64px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.CircleForLogoLP {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.CentreHeaderLinksPageC {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: 25px;
+}
+.CentreHeaderLinksPageT {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 6px;
+}
+.SVGCircleLP {
+  width: 32px;
+  height: 32px;
+}
+.leftUserLogo {
+  height: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+.rightUserLogo {
+  display: flex;
+  height: 100%;
+  float: right;
+  align-items: center;
+}
+.UserLogoWord {
+  position: relative;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.UserLogoWordPro {
+  position: relative;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.AbsoluteDoteUserLogo {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #8787ff;
+  border-radius: 9999px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.header_button-exit {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+  margin: 2px 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+.header_button-exit:hover{
+  border-radius: 0.5em;
+  transition: background-color 0.1s ease-in;
+  background-color: #e1e1e1;
+  cursor: pointer;
+}
+
+.header-right-status {
+  background: linear-gradient(
+    90deg,
+    #646463 -6.92%,
+    #000000 50.38%,
+    #646463 107.69%
+  );
+  width: 65px;
+  height: 30px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.base-status {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 1) 0%, rgb(59 209 246 / 95%) 100%);
+}
+
+.header-right-status-pro {
+  background: linear-gradient(90deg, #624ceb 0%, #ff35ae 100%);
+  width: 65px;
+  height: 30px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.header-popup {
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid #e5e7eb;
+  position: absolute;
+  top: 65px;
+  padding: 15px 0;
+  right: 0;
+  z-index: 1200;
+}
+
+.CentreHeaderLinksPageT.active-link {
+  text-decoration: underline;
+  text-underline-offset: 13px;
+  text-decoration-thickness: 2px;
+}
+
+.image-container-logo {
+  object-fit: cover;
+}
+
+.image-container-logo-free {
+  object-fit: cover;
+}
+
+.image-container-logo::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #634cec, #fe35af);
+  z-index: -1; /* Ensure it stays behind the image */
+}
+
+.header-gradient-text {
+  cursor: pointer;
+  background: linear-gradient(45deg, #4a00e0, #8e2de2); /* градиентный цвет */
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 12px;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .header-gradient-text {
+    display: none;
+  }
+}

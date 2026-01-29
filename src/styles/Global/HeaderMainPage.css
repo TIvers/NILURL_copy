@@ -1,0 +1,29 @@
+.MainPageDiv{
+
+}
+.mainContainerHeaderMainPage{
+    height: 60px;
+    position: sticky;
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+}
+.PriceHeader{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5vw;
+    width: 50px;
+}
+
+.HeaderMainPageLogoCentr {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonContainerMainPageHead{
+    text-align: right;
+    margin: auto 5% auto auto;
+}

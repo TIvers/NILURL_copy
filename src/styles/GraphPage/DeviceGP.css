@@ -1,0 +1,149 @@
+.AddressCountryDev {
+  margin-bottom: 30px;
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.MapGPRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.AddHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.FontSizeTextGPDev {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  gap: 10px; /* Updated gap for alignment */
+  margin-left: auto; /* Pushes the buttons to the right */
+}
+
+.FontSizeTextGPDevRefs {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  gap: 10px;
+}
+
+.NavigationButtonDev {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.CategoryDev {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Gap between categories */
+  align-items: center;
+}
+
+.CategoryItem {
+  color: #6c757d; /* Dark gray for unselected categories */
+  text-decoration: none; /* No underline for unselected categories */
+  cursor: pointer; /* Pointer cursor for clickable items */
+}
+
+.CategoryItem.selected {
+  color: #000000; /* Black for selected category */
+  text-decoration: underline; /* Underline for selected category */
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+.DeviceSwapDev {
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  margin-left: auto;
+  gap: 10px; /* Gap between buttons */
+}
+
+.ToggleViewButton {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.ToggleViewButton.active {
+  background-color: black;
+}
+
+.ToggleViewIcon {
+  display: flex;
+  align-items: center;
+  fill: none;
+  stroke: #000;
+}
+
+.ToggleViewButton.active .ToggleViewIcon {
+  stroke: #fff;
+}
+
+.blurred-container {
+  height: 300px;
+  margin-top: 25px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.blur-overlay {
+  background: linear-gradient(145deg, #ffffffb3, #c0c0c04d);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.access-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+}
+
+.access-icon {
+  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.lock-icon {
+  color: #ff4d4d; /* Красный цвет замка */
+}

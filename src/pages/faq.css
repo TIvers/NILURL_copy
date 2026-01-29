@@ -1,0 +1,147 @@
+.faq-container {
+  display: flex;
+  border-top: 1px solid rgba(221, 221, 221, 1);
+  position: relative;
+}
+
+.faq-sidebar {
+  background: #f4f6f7;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  transition: width 0.3s;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  height: 100%;
+min-height: 100vh;
+  overflow-y: auto;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.faq-sidebar h2,
+.faq-sidebar ul {
+  transition: opacity 0.3s;
+}
+
+.faq-sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.faq-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-sidebar li {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s, font-weight 0.3s;
+}
+
+.faq-sidebar li.active {
+  background: #e9ecef;
+  font-weight: bold;
+}
+
+.toggle-sidebar-btn {
+    display: flex;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto; 
+  transition: right 0.3s;
+}
+
+.toggle-sidebar-btn svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+.faq-content {
+  width: 100%;
+  padding: 20px 40px 50px 340px;
+  padding-bottom: 50px;
+  background-color: rgba(249, 250, 251, 0.8);
+}
+
+.toggle-sidebar-btn {
+  display: none;
+}
+
+.faq-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.faq-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  outline: 1px solid rgba(221, 221, 221, 1);
+}
+
+
+.faq-container.collapsed .faq-sidebar {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  max-width: 50px;
+}
+
+.faq-container.collapsed .faq-sidebar h2,
+.faq-container.collapsed .faq-sidebar ul {
+  display: none;
+}
+
+.faq-container.collapsed .faq-sidebar li {
+  text-align: center;
+  padding: 10px 5px;
+  border-bottom: none;
+}
+
+.faq-container.collapsed .faq-sidebar li.active {
+  background: #e9ecef;
+  font-weight: bold;
+}
+
+.faq-container.collapsed .toggle-sidebar-btn svg {
+  transform: rotateY(360deg);
+  right: 0;
+}
+
+.faq-container.collapsed .toggle-sidebar-btn {
+  right: 10px;
+}
+
+@media screen and (max-width: 1199px) {
+  .faq-container {
+    flex-direction: column;
+  }
+
+  .faq-sidebar {
+    position: absolute;
+    height: 100%;
+  }
+
+  .toggle-sidebar-btn {
+    display: flex;
+  }
+
+  .faq-container.collapsed .toggle-sidebar-btn {
+    margin-left: 0;
+  }
+
+  .faq-container.collapsed .faq-sidebar {
+    width: 50px;
+  }
+
+  .faq-content {
+    width: 100%;
+    padding: 20px 40px 50px 100px;
+    box-sizing: border-box;
+  }
+}
